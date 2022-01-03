@@ -1,22 +1,15 @@
 package com.jiyeon.project.controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @AllArgsConstructor
 public class MainController {
 
     @GetMapping("/docker-main")
-    public ModelAndView entityManager(){
-
-        ModelAndView mv = new ModelAndView();
-
-        mv.setViewName("main.html");
-        return mv;
-
+    public String entityManager(){
+        return "docker-main";
     }
-
 }
