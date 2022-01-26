@@ -6,8 +6,10 @@ RUN pip3 install flask
 
 COPY . .
 
+ENV PORT 5555
+
 VOLUME [ "/app/temp" ]
 
 CMD ["python3", "main.py"]
 
-EXPOSE 3333
+EXPOSE $PORT

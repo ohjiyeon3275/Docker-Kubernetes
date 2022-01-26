@@ -1,4 +1,6 @@
 import json
+import os
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -22,5 +24,5 @@ def read_value():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='3333')
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 3333))
     append()
