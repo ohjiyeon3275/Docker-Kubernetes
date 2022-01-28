@@ -2,8 +2,12 @@ import json
 import os
 
 from flask import Flask
+from pymongo import MongoClient
 
 app = Flask(__name__)
+client = MongoClient("localhost", int("27017"))
+db = client['test']
+collection = db['user']
 
 @app.route("/append/<value>")
 def append(value):
@@ -21,6 +25,12 @@ def read_value():
         value = data["value"]
         jsonfile.close()
     return "value is " + value
+
+
+@app.route("/find/<book>")
+def find_name_from_mongodb(book):
+    result = collection.find({"book": book})
+    return str(result)
 
 
 if __name__ == '__main__':
