@@ -18,6 +18,7 @@ def append(value):
         jsonfile.close()
     return "append success!"
 
+
 @app.route("/value")
 def read_value():
     with open('append.json', mode='r', encoding='utf-8') as jsonfile:
